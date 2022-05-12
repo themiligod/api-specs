@@ -7,7 +7,7 @@ info:
 tags:
   - name: Pages
 security:
-- X-Auth-Token: []
+  - X-Auth-Token: []
 paths:
   '/stores/{store_hash}/v3/content/pages':
     get:
@@ -335,6 +335,7 @@ paths:
     parameters:
       - schema:
           type: string
+          default: 29iql3rwa6
         name: store_hash
         in: path
         required: true
