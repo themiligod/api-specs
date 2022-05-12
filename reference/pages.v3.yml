@@ -335,7 +335,6 @@ paths:
     parameters:
       - schema:
           type: string
-          default: 29iql3rwa6
         name: store_hash
         in: path
         required: true
