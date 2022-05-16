@@ -23,9 +23,9 @@ info:
 
     **Related API Resources**
     - [Shipping Provider](/api-reference/store-management/shipping-provider-api)
-    - [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones)
-    - [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
-    - [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
+    - [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones/getallshippingzones)
+    - [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method/getshippingmethodszone)
+    - [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier/updateacarrierconnection)
   termsOfService: ''
 host: api.bigcommerce.com
 schemes:
