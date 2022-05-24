@@ -2607,7 +2607,7 @@ paths:
         Creates a *Product Video*.
 
         **Required Fields**
-        * video_id - Example: https://www.youtube.com/watch?v=`R12345677`
+        * video_id
 
         **Read-Only Fields**
         * id
@@ -2649,7 +2649,7 @@ paths:
                 The model for a POST to create a video on a product.
               allOf:
                 - title: Product Video Base
-                  type: object
+                  description: Common ProductVideo properties.
                   properties:
                     title:
                       maxLength: 255
@@ -2673,17 +2673,17 @@ paths:
                         The video type (a short name of a host site).
                       enum:
                         - youtube
-                  description: Common ProductVideo properties.
-                - type: object
-                  properties:
+                - properties:
                     video_id:
+                      type: string
                       maxLength: 25
                       minLength: 0
-                      type: string
                       description: |
                         The ID of the video on a host site.
                       x-required:
                         - post
+                      example: 'https://www.youtube.com/watch?v=`R12345677`'
+              type: object
         required: true
       responses:
         '200':
