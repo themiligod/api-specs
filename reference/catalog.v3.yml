@@ -2682,7 +2682,7 @@ paths:
                         The ID of the video on a host site.
                       x-required:
                         - post
-                      example: 'https://www.youtube.com/watch?v=`R12345677`'
+                      example: 'www.youtube.com/watch?v=1'
               type: object
         required: true
       responses:
