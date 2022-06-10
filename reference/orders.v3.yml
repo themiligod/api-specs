@@ -712,7 +712,7 @@ paths:
                         }
                     }
         '503':
-          description: All failure response.
+          description: "All failure response. \nHTTP status code for the entire batch request to roll up to the most severe individual failure to the whole request."
           content:
             application/json:
               schema:
@@ -728,7 +728,6 @@ paths:
                       $ref: '#/components/schemas/FailedQuoteError'
                   meta:
                     type: object
-            "All failure response. \nHTTP status code for the entire batch request to roll up to the most severe individual failure to the whole request.":
               examples:
                 response:
                   value: |-
