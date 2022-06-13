@@ -1,0 +1,174 @@
+openapi: 3.0.0
+info:
+  title: Store Logs APIs
+  version: ''
+paths:
+  /store/systemlogs:
+    get:
+      summary: Get System Logs
+      operationId: get-sites
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SystemLog'
+                  meta:
+                    $ref: '#/components/schemas/IndexMeta'
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: Results per page
+        - schema:
+            type: integer
+          in: query
+          name: page
+          description: Numeric page of results
+        - schema:
+            type: string
+          in: query
+          name: 'date_created:min'
+          description: Minimum date
+        - schema:
+            type: string
+          in: query
+          name: 'date_created:max'
+          description: Maximum date
+        - schema:
+            type: string
+          in: query
+          name: type
+          description: Filter by log type
+        - schema:
+            type: string
+          in: query
+          name: 'type:not'
+          description: Exclude a type from results
+        - schema:
+            type: string
+          in: query
+          name: module
+          description: Filter by module
+        - schema:
+            type: string
+          in: query
+          name: 'module:not'
+          description: Exclude a module from results
+        - schema:
+            type: integer
+          in: query
+          name: severity
+          description: 'Filter by severity level, as an integer. Success = 1, Notice = 2, Warning = 3, Error = 4'
+        - schema:
+            type: integer
+          in: query
+          name: 'severity:min'
+          description: 'Filter by minimum severity, as an integer'
+        - schema:
+            type: integer
+          in: query
+          name: 'severity:max'
+          description: 'Filter by maximum severity, as an integer'
+        - schema:
+            type: string
+          in: query
+          name: 'id:in'
+          description: 'Filter by a list of log IDs, as a CSV. For example ?id:in=3,4,6'
+      description: ''
+    parameters: []
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    description: Production API Gateway
+components:
+  schemas:
+    IndexMeta:
+      type: object
+      description: BC Meta payload for collection-type responses
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 1
+            count:
+              type: integer
+              example: 1
+            per_page:
+              type: integer
+              example: 50
+            current_page:
+              type: integer
+              example: 1
+            total_pages:
+              type: integer
+              example: 1
+            links:
+              type: object
+              properties:
+                previous:
+                  type: string
+                  example: '?page=1&limit=50'
+                current:
+                  type: string
+                  example: '?page=1&limit=50'
+                next:
+                  type: string
+                  example: '?page=1&limit=50'
+    ErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseError'
+        - type: object
+          properties:
+            errors:
+              $ref: '#/components/schemas/DetailedErrors'
+    BaseError:
+      type: object
+      description: |
+        Error payload for the BigCommerce API.
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+    SystemLog:
+      title: SystemLog
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+        module:
+          type: string
+        severity:
+          type: string
+        summary:
+          type: string
+        message:
+          type: string
+        date_created:
+          type: string
+          format: date-time
+  parameters: {}
+  requestBodies: {}
