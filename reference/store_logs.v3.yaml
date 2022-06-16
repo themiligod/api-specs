@@ -5,7 +5,6 @@ info:
   description: Get store logs from BigCommerce Store
 servers:
   - url: 'https://api.bigcommerce.com'
-    description: Production API Gateway
 paths:
   /stores/{store_hash}/v3/store/systemlogs:
     get:
