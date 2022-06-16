@@ -3,8 +3,11 @@ info:
   title: Store Logs APIs
   version: ''
   description: Get store logs from BigCommerce Store
+servers:
+  - url: 'https://api.bigcommerce.com'
+    description: Production API Gateway
 paths:
-  /store/systemlogs:
+  /stores/{store_hash}/v3/store/systemlogs:
     get:
       summary: Get System Logs
       tags: 
@@ -25,6 +28,11 @@ paths:
                   meta:
                     $ref: '#/components/schemas/IndexMeta'
       parameters:
+        - schema:
+            type: string
+          in: path
+          required: true
+          name: store_hash
         - schema:
             type: integer
           in: query
@@ -87,9 +95,6 @@ paths:
           description: 'Filter by a list of log IDs, as a CSV. For example ?id:in=3,4,6'
       description: Get system logs 
     parameters: []
-servers:
-  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
-    description: Production API Gateway
 components:
   schemas:
     IndexMeta:
