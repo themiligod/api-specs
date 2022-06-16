@@ -1,4 +1,6 @@
 openapi: 3.0.0
+x-stoplight:
+  id: 984571274919c
 info:
   title: Store Logs APIs
   version: ''
@@ -6,11 +8,11 @@ info:
 servers:
   - url: 'https://api.bigcommerce.com'
 paths:
-  /stores/{store_hash}/v3/store/systemlogs:
+  '/stores/{store_hash}/v3/store/systemlogs':
     get:
       summary: Get System Logs
-      tags: 
-          - System Logs
+      tags:
+        - System Logs
       operationId: get-sites
       responses:
         '200':
@@ -92,7 +94,7 @@ paths:
           in: query
           name: 'id:in'
           description: 'Filter by a list of log IDs, as a CSV. For example ?id:in=3,4,6'
-      description: Get system logs 
+      description: Get system logs
     parameters: []
 components:
   schemas:
@@ -180,4 +182,4 @@ components:
   parameters: {}
   requestBodies: {}
 tags:
-    - name: System Logs
+  - name: System Logs
