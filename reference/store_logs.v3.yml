@@ -36,11 +36,13 @@ paths:
           name: store_hash
         - schema:
             type: integer
+            default: 50
           in: query
           name: limit
           description: Results per page
         - schema:
             type: integer
+            default: 1
           in: query
           name: page
           description: Numeric page of results
