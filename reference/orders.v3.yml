@@ -728,6 +728,7 @@ paths:
                       $ref: '#/components/schemas/FailedQuoteError'
                   meta:
                     type: object
+            Example 1:
               examples:
                 response:
                   value: |-
