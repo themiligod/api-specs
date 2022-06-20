@@ -4,7 +4,7 @@ x-stoplight:
 info:
   title: Store Logs V3 API
   version: ''
-  description: Get store logs from BigCommerce Store
+  description: Get store logs
 servers:
   - url: 'https://api.bigcommerce.com'
 paths:
