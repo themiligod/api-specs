@@ -11,6 +11,13 @@ paths:
   '/stores/{store_hash}/v3/store/systemlogs':
     get:
       summary: Get System Logs
+      description: |- 
+        Get system logs 
+
+        <!-- theme:info -->
+        > #### Note
+        > The documented values for the `module` query parameter are only some of the possible values. Other modules include payment providers and carrier shipping methods. Use this endpoint without query parameters to see all system log entries from the store and their module values.   
+
       tags:
         - System Logs
       operationId: get-sites
@@ -58,6 +65,22 @@ paths:
           description: Maximum date
         - schema:
             type: string
+            enum:
+              - general messages
+              - payment gateways
+              - shipping quotes
+              - tax quotes
+              - promotion
+              - notification system
+              - email integration
+              - ebay
+              - shopping comparison
+              - order settings
+              - square
+              - facebook
+              - pinterest
+              - design
+              - inventory
           in: query
           name: type
           description: Filter by log type
@@ -68,6 +91,12 @@ paths:
           description: Exclude a type from results
         - schema:
             type: string
+            enum:
+              - export only
+              - email message
+              - theme download
+              - order status
+              - optimized checkout
           in: query
           name: module
           description: Filter by module
@@ -78,6 +107,11 @@ paths:
           description: Exclude a module from results
         - schema:
             type: integer
+            enum:
+              - 1
+              - 2
+              - 3
+              - 4
           in: query
           name: severity
           description: 'Filter by severity level, as an integer. Success = 1, Notice = 2, Warning = 3, Error = 4'
@@ -96,7 +130,6 @@ paths:
           in: query
           name: 'id:in'
           description: 'Filter by a list of log IDs, as a CSV. For example ?id:in=3,4,6'
-      description: Get system logs
     parameters: []
 components:
   schemas:
