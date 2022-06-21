@@ -216,5 +216,25 @@ components:
           format: date-time
   parameters: {}
   requestBodies: {}
+  securitySchemes:
+    X-Auth-Token:
+      type: apiKey
+      name: X-Auth-Token
+      in: header
+      description: |-
+        ### OAuth Scopes
+        |  **UI Name** | **Permission** | **Parameter** |
+        | --- | --- | --- |
+        |  Store logs | read-only | |
+
+        ### Headers
+
+        |Header|Parameter|Description|
+        |-|-|-|
+        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+
+        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 tags:
   - name: System Logs
+security:
+  - X-Auth-Token: []
