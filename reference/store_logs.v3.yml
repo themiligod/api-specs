@@ -55,16 +55,6 @@ paths:
           description: Numeric page of results
         - schema:
             type: string
-          in: query
-          name: 'date_created:min'
-          description: Minimum date
-        - schema:
-            type: string
-          in: query
-          name: 'date_created:max'
-          description: Maximum date
-        - schema:
-            type: string
             enum:
               - general
               - payment
