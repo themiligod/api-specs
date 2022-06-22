@@ -225,7 +225,7 @@ components:
         ### OAuth Scopes
         |  **UI Name** | **Permission** | **Parameter** |
         | --- | --- | --- |
-        |  Store logs | read-only | |
+        |  Store logs | read-only | store_store_logs_read_only |
 
         ### Headers
 
